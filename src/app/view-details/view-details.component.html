@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-primary">
+      <div class="panel-heading">View Flight Bookings</div>
+      <div class="panel-body">
+        <!-- Display success and error messages -->
+        <div *ngIf="successMessage" class="alert alert-success">
+          {{ successMessage }}
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+
+        <!-- Table to display flight bookings -->
+        <table class="table table-bordered table-hover" *ngIf="flightDetails.length > 0; else noBookings">
+          <thead>
+            <tr>
+              <th>Passenger Name</th>
+              <th>Booking ID</th>
+              <th>Number of Tickets</th>
+              <th>Total Fare</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let booking of flightDetails">
+              <td>{{ booking.passengerName }}</td>
+              <td>{{ booking.id }}</td>
+              <td>{{ booking.noOfTickets }}</td>
+              <td>{{ booking.totalAmount }}</td>
+              <td>
+                <!-- Delete button conditionally enabled based on totalFare -->
+                <button
+                  class="btn btn-danger"
+                  (click)="delete(booking.id, booking.totalAmount)"
+                  [disabled]="booking.totalAmount >= 5000"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- No bookings fallback -->
+        <ng-template #noBookings>
+          <div class="alert alert-info text-center">
+            No flight bookings available!
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

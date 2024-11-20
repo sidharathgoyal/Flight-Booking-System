@@ -1,0 +1,14 @@
+.allign{
+
+    text-align:center;
+    color:rgb(121, 16, 16)
+}
+
+body {
+    background-image: url('../assets/background.jpg');
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: top; /* Centers the image */
+  }
+  
+  

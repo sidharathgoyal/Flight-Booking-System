@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-md-5 col-md-offset-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Book the Flight</div>
+      <div class="panel-body">
+        <!-- Form wrapped with formGroup -->
+        <form [formGroup]="bookingForm" (ngSubmit)="book()">
+          <!-- Passenger Name -->
+          <div>
+            <label for="passengerName">Passenger Name</label>
+            <input id="passengerName" type="text" formControlName="passengerName" />
+            <span id="passengerNameError" *ngIf="
+                bookingForm.get('passengerName')?.invalid &&
+                bookingForm.get('passengerName')?.touched
+              " style="color: red">
+              Passenger name required
+            </span>
+          </div>
+          <br>
+          <!-- Number of Tickets -->
+          <div>
+            <label for="noOfTickets">Number of Tickets</label>
+            <input id="noOfTickets" type="number" formControlName="noOfTickets" />
+            <span id="noOfTicketsError" *ngIf="
+                bookingForm.get('noOfTickets')?.invalid &&
+                bookingForm.get('noOfTickets')?.touched
+              " style="color: red">
+              Enter the number of tickets greater than 0
+            </span>
+          </div>
+          <br>
+          <!-- Flight ID -->
+          <div>
+            <label for="flightId">Flight ID</label>
+            <input id="flightId" type="text" formControlName="flightId" />
+            <span id="flightIdError" *ngIf="
+                bookingForm.get('flightId')?.errors?.['flightError'] &&
+                bookingForm.get('flightId')?.touched
+              " style="color: red">
+              Enter a valid flight ID
+            </span>
+          </div>
+          <br>
+          <!-- Book Button -->
+          <div>
+            <button type="submit" [disabled]="bookingForm.invalid">
+              Book Flight
+            </button>
+          </div>
+          <div *ngIf="successMessage" class="success-message">
+            {{ successMessage }}
+          </div>
+          <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
