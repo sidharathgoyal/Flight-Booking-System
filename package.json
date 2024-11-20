@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "fb-ui",
   "version": "0.0.0",
   "scripts": {
@@ -37,5 +38,22 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.5.2"
+=======
+  "name": "fbwebservice",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "mongodb": "^3.0.7",
+    "mongodb-promise": "0.0.4",
+    "promise-mysql": "^3.2.1",
+    "promised-mongo": "^1.2.0",
+    "serve-favicon": "~2.4.5"
+>>>>>>> a152ec2 (Initial commit)
   }
 }
